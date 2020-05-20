@@ -3,6 +3,7 @@ package com.example.common.response;
 
 /**
  * 通用响应状态
+ * @author yichuan
  */
 public enum ResultCode {
     /* 成功状态码 */

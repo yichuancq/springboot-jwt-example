@@ -1,16 +1,17 @@
 package com.example.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 /**
  * 用户账户
+ *
  * @author yichuan
  */
-@Getter
-@Setter
-@ToString
+@Data
+@Component
+@ConfigurationProperties(prefix = "account")
 public class Account {
     private String clientId;
     private String name;

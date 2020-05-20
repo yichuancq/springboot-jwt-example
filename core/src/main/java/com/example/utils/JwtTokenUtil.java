@@ -19,7 +19,13 @@ import java.util.Date;
 @Slf4j
 public class JwtTokenUtil {
 
+    /**
+     * token key
+     */
     public static final String AUTH_HEADER_KEY = "Authorization";
+    /**
+     * token 前缀
+     */
     public static final String TOKEN_PREFIX = "Bearer ";
 
     /**
@@ -67,7 +73,6 @@ public class JwtTokenUtil {
 
             //userId是重要信息，进行加密下
             String encryId = Base64Util.encode(userId);
-
             //添加构成JWT的参数
             JwtBuilder builder = Jwts.builder().setHeaderParam("typ", "JWT")
                     // 可以将基本不重要的对象信息放到claims
