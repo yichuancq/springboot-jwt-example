@@ -31,8 +31,9 @@ public class ValidateController {
 
 
     /**
-     * key=Authorization
-     * value=Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VySWQiOiJjM2I4Mzc3NC0xYmFmLTRiMDgtOGU2MC0xODI1MGRiYTJhNTEiLCJzdWIiOiJ0ZXN0IiwiaXNzIjoiMTIzNDU2IiwiaWF0IjoxNTg5OTU0OTkxLCJhdWQiOiJyZXN0YXBpdXNlciIsImV4cCI6MTU4OTk1NTE2NCwibmJmIjoxNTg5OTU0OTkxfQ.gARDjQKKyoQDxQUE_AWd2vkqDGhXXKrTE5gCeoPc3yE
+     * 先登录，后请求其他接口请求时把key,value放入header里面
+     * key=token
+     * value=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VySWQiOiJjM2I4Mzc3NC0xYmFmLTRiMDgtOGU2MC0xODI1MGRiYTJhNTEiLCJzdWIiOiJ0ZXN0IiwiaXNzIjoiMTIzNDU2IiwiaWF0IjoxNTg5OTU0OTkxLCJhdWQiOiJyZXN0YXBpdXNlciIsImV4cCI6MTU4OTk1NTE2NCwibmJmIjoxNTg5OTU0OTkxfQ.gARDjQKKyoQDxQUE_AWd2vkqDGhXXKrTE5gCeoPc3yE
      *
      * @param accountDto
      * @param response
