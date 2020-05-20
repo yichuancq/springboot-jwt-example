@@ -2,7 +2,8 @@ package com.example.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.annotation.JwtIgnore;
+import com.example.annotation.PassToken;
+import com.example.annotation.UserLoginToken;
 import com.example.common.response.Result;
 import com.example.domain.Account;
 import com.example.domain.dto.AccountDto;
@@ -39,7 +40,7 @@ public class ValidateController {
      * @param response
      * @return
      */
-    @JwtIgnore
+    @PassToken
     @PostMapping("/login")
     @ApiOperation(value = "/login", notes = "用户登录验证")
     public Result login(@RequestBody AccountDto accountDto, HttpServletResponse response) {
@@ -61,9 +62,22 @@ public class ValidateController {
         return Result.SUCCESS(result);
     }
 
+    @UserLoginToken
     @GetMapping("/getMessage")
     public Result getMessage() {
         log.info("你已通过验证");
+        return Result.SUCCESS();
+    }
+
+    /**
+     * 无需要token访问接口
+     *
+     * @return
+     */
+    @PassToken
+    @GetMapping("/withNotToken")
+    public Result withNotToken() {
+        log.info("无需要token访问接口");
         return Result.SUCCESS();
     }
 }
