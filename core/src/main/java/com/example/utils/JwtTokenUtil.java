@@ -22,11 +22,11 @@ public class JwtTokenUtil {
     /**
      * token key
      */
-    public static final String AUTH_HEADER_KEY = "Authorization";
+    public static final String AUTH_HEADER_KEY = "token";
     /**
      * token 前缀
      */
-    public static final String TOKEN_PREFIX = "Bearer ";
+    public static final String TOKEN_PREFIX = "";
 
     /**
      * 解析jwt

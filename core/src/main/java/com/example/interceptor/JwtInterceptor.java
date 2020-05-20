@@ -46,12 +46,11 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
         final String authHeader = request.getHeader(JwtTokenUtil.AUTH_HEADER_KEY);
         log.info("## authHeader= {}", authHeader);
 
-        if (StringUtils.isBlank(authHeader) || !authHeader.startsWith(JwtTokenUtil.TOKEN_PREFIX)) {
+        if (StringUtils.isBlank(authHeader)) {
             log.info("### 用户未登录，请先登录 ###");
             throw new DataException(ResultCode.USER_NOT_LOGGED_IN);
         }
-        // 获取token
-        final String token = authHeader.substring(7);
+        final String token = authHeader;
         if (account == null) {
             //这里用到了IOC
             BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());
