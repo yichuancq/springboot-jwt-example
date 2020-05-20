@@ -23,6 +23,10 @@ public enum ResultCode {
     USER_NOT_EXIST(20004, "用户不存在"),
     USER_HAS_EXISTED(20005, "用户已存在"),
 
+
+    /* 系统错误：40001-49999 */
+    SYSTEM_INNER_ERROR(40001, "系统繁忙，请稍后重试"),
+
     /* 数据错误：50001-599999 */
     RESULT_DATA_NONE(50001, "数据未找到"),
     DATA_IS_WRONG(50002, "数据有误"),

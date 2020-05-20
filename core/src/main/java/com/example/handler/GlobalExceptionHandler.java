@@ -41,7 +41,6 @@ public class GlobalExceptionHandler {
         if (e instanceof MethodArgumentNotValidException) {
             MethodArgumentNotValidException validException = (MethodArgumentNotValidException) e;
             BindingResult result = validException.getBindingResult();
-
             if (result.hasErrors()) {
                 List<ObjectError> errors = result.getAllErrors();
                 errors.forEach(p -> {
