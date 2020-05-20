@@ -1,5 +1,4 @@
-# springboot-jwt-example
-springboot-jwt-example
+### springboot-jwt-example
    
 -  JWT验证忽略注解
 ```java
@@ -20,7 +19,7 @@ springboot-jwt-example
    }
 ```
 
-  无需要token访问接口
+-  无需要token访问接口
 ```java
     @PassToken
     @GetMapping("/withNotToken")
