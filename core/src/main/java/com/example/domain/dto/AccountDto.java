@@ -17,4 +17,5 @@ import java.io.Serializable;
 public class AccountDto implements Serializable {
     private String userName;
     private String password;
+    private String userId;
 }

@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.UUID;
 
 /**
  * @author yichuan
@@ -48,7 +48,8 @@ public class ValidateController {
             return null;
         }
         // 这里模拟测试, 默认登录成功，返回用户ID和角色信息
-        String userId = UUID.randomUUID().toString();
+        String userId = accountDto.getUserId();
+        //  String userId = UUID.randomUUID().toString();
         String role = "admin";
         // 创建token
         log.info("accountDto:{}", accountDto.toString());
@@ -62,9 +63,22 @@ public class ValidateController {
         return Result.SUCCESS(result);
     }
 
+    /**
+     * @param httpServletRequest
+     * @return
+     */
     @UserLoginToken
     @GetMapping("/getMessage")
-    public Result getMessage() {
+    public Result getMessage(HttpServletRequest httpServletRequest) {
+
+        String tokenString = httpServletRequest.getHeader("token");
+        log.info("token:{}", tokenString);
+
+        String userId = JwtTokenUtil.getUserId(tokenString, account.getBase64Secret());
+        log.info("userId:{}", userId);
+
+        String userName = JwtTokenUtil.getUsername(tokenString, account.getBase64Secret());
+        log.info("userName:{}", userName);
         log.info("你已通过验证");
         return Result.SUCCESS();
     }

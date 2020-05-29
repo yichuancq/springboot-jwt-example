@@ -1,12 +1,10 @@
 package com.example.common.response;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
+import java.io.Serializable;
 /**
  * @author yichuan
  */
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-public class Result<T> {
+public class Result<T> implements Serializable {
     /**
      * 操作码
      */
@@ -22,7 +20,7 @@ public class Result<T> {
     private T data;
 
 
-    public Result( ) {
+    public Result() {
     }
 
     public Result(ResultCode resultCode) {

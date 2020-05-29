@@ -68,7 +68,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Result handleOtherException(Exception e) {
         //打印异常堆栈信息
-        e.printStackTrace();
+        //e.printStackTrace();
         // 打印异常信息
         log.error("不可知的异常:{}", e.getMessage());
         return new Result(ResultCode.SYSTEM_INNER_ERROR);
