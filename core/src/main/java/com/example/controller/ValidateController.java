@@ -49,7 +49,6 @@ public class ValidateController {
         }
         // 这里模拟测试, 默认登录成功，返回用户ID和角色信息
         String userId = accountDto.getUserId();
-        //  String userId = UUID.randomUUID().toString();
         String role = "admin";
         // 创建token
         log.info("accountDto:{}", accountDto.toString());
